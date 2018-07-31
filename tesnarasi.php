@@ -5,7 +5,7 @@ include("koneksi.php");
 
 <body>
 <div class="container" style="margin-bottom: 80px; margin-top: 60px">
-<div class="row">
+<div class="row" style="margin-top: 10px">
 	<div class="col-md-12" style="background-color: #f0f0f0; border-radius: 5px;">
 		<h3 style="text-align: center;">
 			<?php
@@ -17,8 +17,10 @@ include("koneksi.php");
 			?>
 		</h3>
 	</div>
+</div>
+
+<div class="row">
 	<div class="col-md-3">
-		<h3 align="center">peta1</h3>
 		<div id="dvMap" style="width: 100%; height: 270px; margin-top:10px; box-shadow: 1px 1px 3px grey; padding: 0px 0px 0px 0px"></div>
 		    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDcZJ8zBcGKVDzLH2fcwflexue9ZoiIoCY&callback=initMap" async defer></script>
 			<script type="text/javascript">
@@ -73,9 +75,9 @@ include("koneksi.php");
 			        }
 			</script>
             </div>
-		</div>
+		
+
 	<div class="col-md-3">
-		<h3 align="center">peta2</h3>
 		<div id="dvMap2" style="width: 100%; height: 270px; margin-top:10px; box-shadow: 1px 1px 3px grey; padding: 0px 0px 0px 0px"></div>
 		    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDcZJ8zBcGKVDzLH2fcwflexue9ZoiIoCY&callback=initMap" async defer></script>
 			<script type="text/javascript">
@@ -128,27 +130,101 @@ include("koneksi.php");
 			                })(marker, data);
 			            }
 			        }
-			</script>
-            </div>
-	</div>
-	<div class="col-md-3">
-		<h3 align="center">detail</h3>
-	</div>
-	<div class="col-md-3">
-		<h3 align="center">seismitas</h3>
-	</div>
+			</script>  
+        </div>
+
+        <div class="col-md-3">
+			<div class="panel panel-primary" style="margin-top: 10px; height: 270px">
+     			 <div class="panel-heading" style="text-align: center;">DETAIL</div>
+      				<div class="panel-body" style="font-size: 14px;">
+						<?php
+							$query = mysqli_query($koneksi, "SELECT * FROM repository WHERE nomor = $_GET[id]");
+							while ($data = mysqli_fetch_array($query)) {
+								$nomor=$data['nomor'];
+								$ot=$data['OT'];
+								$lat=$data['lat'];
+								$lon=$data['lon'];
+								$mag=$data['mag'];
+								$ket=$data['ket'];
+								$status=$data['STATUS'];
+								$sumber=$data['id'];
+							}
+
+							
+						?>
+
+      					<div>
+      						OT :<?php echo $ot;?>
+      						</hr>
+      					</div>
+      					<div>
+      						LAT : <?php echo $lat?>
+      					</div>
+      					<div>
+      						LON : <?php echo $lon?>
+      					</div>
+      					<div>
+      						MAG : <?php echo $mag?>
+      					</div>
+      					<div>
+      						KET : <?php echo $ket?>
+      					</div>
+      					<div>
+      						DIRASAKAN : <?php if ($status == 1)
+      						{
+      							echo "YA";
+      						}
+      						else
+      						{
+      							echo "TIDAK";
+      						}
+      						?>	
+      						
+      					</div>
+      					<div>
+      						SUMBER DATA : <?php echo $sumber?>
+      					</div>
+      				</div>
+    		</div>
+		</div>
+
+		<div class="col-md-3">
+			<div class="panel panel-primary" style="margin-top: 10px; height: 270px">
+     			 <div class="panel-heading" style="text-align: center;">SEISMITAS</div>
+      				<div class="panel-body">
+      					<div style="margin-bottom: 20px">
+      						<img src="./assets/img/range.png" style="width: 20%">
+      						Range waktu
+      					</div>
+      					<div style="margin-bottom: 20px">
+      						<img src="./assets/img/radius.png" style="width: 20%">
+      						Radius Km
+      					</div>
+      					<div style="margin-bottom: 20px">
+      						<img src="./assets/img/magnitude.png" style="width: 20%">
+      						Range Magnitude
+      					</div>
+      				</div>
+    		</div>
+		</div>
+</div>
+
+<div class="row" style="margin-top: 50px">
 	<div class="col-md-6">
-		<button type="button" class="btn btn-primary" style="width: 40%; margin-right: 100px; margin-left: 100px;">CETAK NARASI</button>
-		<button type="button" class="btn btn-danger" style="width: 40%; margin-right: 100px; margin-left: 100px; margin-top: 30px">CETAK BERITA GEMPA</button>
+		<a href="cetaknarasi.php?id=<?php echo $nomor?>"><button type="button" class="btn btn-primary" style="width: 50%; height: 40px; margin-right: 100px; margin-left:;">CETAK NARASI</button></a>
+		<a href="cetakberita.php?php echo $nomor?"><button type="button" class="btn btn-danger" style="width: 50%; margin-right: 100px; margin-left:; margin-top: 20px; height: 40px">CETAK BERITA GEMPA</button></a>
 	</div>
+
 	<div class="col-md-6">
+		<a href="kirimnarasi.php?"><button type="button" class="btn btn-primary" style="width: 100%; height:50px; margin-left:;">KIRIM NARASI</button></a>
 	</div>
 </div>
 </div>                          
 </body> 
+
 <script>
 	function zoom() {
-        document.body.style.zoom = "110%"
+        document.body.style.zoom = "100%"
     }
 </script>
 <?php
