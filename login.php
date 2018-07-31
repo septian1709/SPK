@@ -15,31 +15,6 @@
   
 </head>
 <body>
-  <nav class="navbar navbar-default navbar-fixed-top" style="background-color: white; margin: 0 0 0 0; box-shadow: 0px 0px 5px;">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <div class="navbar-brand" style="padding-top: 10px;">
-                        <ul>
-                        <span> 
-                            <a href="index.php">
-                                <img src="assets/img/logo.png" width="30px">
-                            </a>
-                        </span> 
-                        <span class="hidden-xs hidden-md" style="font-weight:bold; color:black; font-size: 14px" >
-                            PUSAT GEMPA REGIONAL III
-                        </span> 
-                        </ul>
-                    </div> 
-                </div>
-            </div>
-        </nav>
-
   <div class="container">
     <div class="container" style="margin-bottom: 80px; margin-top: 60px">
     <div class="row">
@@ -69,3 +44,4 @@
   </div>
 </body>
 </html>
+
