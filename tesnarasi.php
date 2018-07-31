@@ -211,7 +211,7 @@ include("koneksi.php");
 
 <div class="row" style="margin-top: 50px">
 	<div class="col-md-6">
-		<a href="cetaknarasi.php?id=<?php echo $nomor?>"><button type="button" class="btn btn-primary" style="width: 50%; height: 40px; margin-right: 100px; margin-left:;">CETAK NARASI</button></a>
+		<a href="event_trigger.php"><button type="button" class="btn btn-primary" style="width: 50%; height: 40px; margin-right: 100px; margin-left:;">CETAK NARASI</button></a>
 		<a href="cetakberita.php?php echo $nomor?"><button type="button" class="btn btn-danger" style="width: 50%; margin-right: 100px; margin-left:; margin-top: 20px; height: 40px">CETAK BERITA GEMPA</button></a>
 	</div>
 

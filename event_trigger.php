@@ -1,32 +1,136 @@
 <?php 
-session_start();
-include("koneksi.php"); // memanggil file koneksi.php untuk koneksi ke database
-$name=$_SESSION['User'];
-$tingkat=$_SESSION['level'];
-$query = mysqli_query($koneksi, "SELECT * FROM tb_pengguna WHERE User='$name'");
-$roww = mysqli_fetch_assoc($query);
-$namalengkap1=$roww['Nama'];
-$status=$roww['Statuspengguna'];
+	include("koneksi.php"); // memanggil file koneksi.php untuk koneksi ke database
+	session_start();
+
+	$username = $_POST['user'];
+	$query = mysqli_query($koneksi, "SELECT * FROM login WHERE username='$username'");
+
+	if (mysqli_num_rows($query)) {
+		$row = mysqli_fetch_assoc($query);
+		$username = $row['username'];	
+		$_SESSION['username'] = $username;
+	}
 ?>
+
 <?php 
-include("header1.php"); // memanggil file header.php
-include("koneksi.php"); // memanggil file koneksi.php untuk koneksi ke database
+	include("v_header.php"); // memanggil file header.php
+	include("koneksi.php"); // memanggil file koneksi.php untuk koneksi ke database
 ?>
 
 	<div class="content-wrapper">
     <div class="container-fluid">
-      <!-- Breadcrumbs-->
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item">
-          <a href="index.php">Dashboard</a>
-        </li>
-        <li class="breadcrumb-item active">Program Narasi</li>
-      </ol>
 	  <div class="container">
+
+<div class="card">
+              <div class="card-header no-border">
+                <h3 class="card-title">Products</h3>
+                <div class="card-tools">
+                  <a href="#" class="btn btn-tool btn-sm">
+                    <i class="fa fa-download"></i>
+                  </a>
+                  <a href="#" class="btn btn-tool btn-sm">
+                    <i class="fa fa-bars"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="card-body p-0">
+                <table class="table table-striped table-valign-middle">
+                  <thead>
+                  <tr>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Sales</th>
+                    <th>More</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td>
+                      <img src="dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
+                      Some Product
+                    </td>
+                    <td>$13 USD</td>
+                    <td>
+                      <small class="text-success mr-1">
+                        <i class="fa fa-arrow-up"></i>
+                        12%
+                      </small>
+                      12,000 Sold
+                    </td>
+                    <td>
+                      <a href="#" class="text-muted">
+                        <i class="fa fa-search"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <img src="dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
+                      Another Product
+                    </td>
+                    <td>$29 USD</td>
+                    <td>
+                      <small class="text-warning mr-1">
+                        <i class="fa fa-arrow-down"></i>
+                        0.5%
+                      </small>
+                      123,234 Sold
+                    </td>
+                    <td>
+                      <a href="#" class="text-muted">
+                        <i class="fa fa-search"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <img src="dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
+                      Amazing Product
+                    </td>
+                    <td>$1,230 USD</td>
+                    <td>
+                      <small class="text-danger mr-1">
+                        <i class="fa fa-arrow-down"></i>
+                        3%
+                      </small>
+                      198 Sold
+                    </td>
+                    <td>
+                      <a href="#" class="text-muted">
+                        <i class="fa fa-search"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <img src="dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
+                      Perfect Item
+                      <span class="badge bg-danger">NEW</span>
+                    </td>
+                    <td>$199 USD</td>
+                    <td>
+                      <small class="text-success mr-1">
+                        <i class="fa fa-arrow-up"></i>
+                        63%
+                      </small>
+                      87 Sold
+                    </td>
+                    <td>
+                      <a href="#" class="text-muted">
+                        <i class="fa fa-search"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <!-- /.card -->
+
 	   <div class="form-group" >
-        <div class="col-md-12" align="center">
+        <div class="col-md-11" align="center">
          <main class="site-main">
-		<div class="col-md-12" align="center"> 			
+		<div class="col-md-11" align="center"> 			
 		<form method="post" action="" class="inner-login">
 		<h3 class="text-center title-login"><font color="#000000">INPUT PARAMATER</h3>
 		</br>
