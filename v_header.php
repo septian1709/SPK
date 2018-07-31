@@ -97,7 +97,7 @@ $sec = "10000";
                         <li><a href="klimatologi">LAPORAN</a></li>
 						<li><a href="klimatologi">KONTAK</a></li>
 						<li><a href="klimatologi">SETTING</a></li>
-                        
+                        <li><a href="logout.php">LOGOUT</i></a>                        
                     </ul>
                 </div> <!-- /.navbar-collapse -->
             </div>

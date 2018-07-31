@@ -13,14 +13,14 @@
     $_SESSION['username'] = $username;
     if ($_SESSION['username'] == "sanglah") {
       echo "<script>alert('Anda Login Sebagai Sanglah');location.href='index.php';</script>";
-    } elseif ($_SESSION['username'] == "PGA") {
-      echo "<script>alert('Anda Login Sebagai PGA');location.href='index.php';</script>";;
+    } elseif ($_SESSION['username'] == "PGR") {
+      echo "<script>alert('Anda Login Sebagai PGR');location.href='index.php';</script>";;
     } elseif ($_SESSION['username'] == "mataram") {
       echo "<script>alert('Anda Login Sebagai Mataram');location.href='index.php';</script>";
     } else{
-      echo "<script>alert('Anda Login Sebagai Weingapu');location.href='index.php';</script>";
+      echo "<script>alert('Anda Login Sebagai Waingapu');location.href='index.php';</script>";
     }
-    
+
   }else {
       echo "<script>alert('LOGIN GAGAL! Akun tidak terdaftar !');location.href='login.php';</script>";
   }
