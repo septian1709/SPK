@@ -15,12 +15,12 @@
         $id = $_POST['rowid'];
         // mengambil data berdasarkan id
         // dan menampilkan data ke dalam form modal bootstrap
-       $sql = mysqli_query($koneksi, "SELECT * FROM repository where idpublic='$id'");
+       $sql = mysqli_query($koneksi, "SELECT * FROM repository where nomor='$id'");
 		while(($data =  mysqli_fetch_assoc($sql))) {
 ?>
 
         <form action="update.php" method="post">
-            <input type="hidden" name="id" value="<?php echo $data['idpublic']; ?>">
+            <input type="hidden" name="id" value="<?php echo $data['nomor']; ?>">
             <div class="form-group">
                 <label>Info Gempabumi</label>
                 <textarea class="form-control" rows="2" name="deskripsi" ><?php echo $data['gempabumi']; ?></textarea>
@@ -40,30 +40,40 @@
 							</select>
 					</div>
 					<div class="col-md-4">
-						<input type="text" class="form-control" name="nama_barang" placeholder="masukan kota utama">
+						<input type="text" class="form-control" name="nama_kota" placeholder="masukan kota utama">
 					
 					</div>
+
 					</div>
+
+            <div class="form-group">
+                
+                    <select class="form-control" name= "op3">
+                    <option value="1">Dirasakan</option>
+                    <option value="">Tidak Dirasakan</option>
+                    </select>
+                
+            </div>
 			
 			<div class="form-group">
                 <label>SIG 1</label>
-                <input type="text" class="form-control" name="nama_barang" value="<?php echo $data['sig1']; ?>">
+                <input type="text" class="form-control" name="nama_kota1" value="<?php echo $data['sig1']; ?>">
             </div>
 			<div class="form-group">
                 <label>SIG 2</label>
-                <input type="text" class="form-control" name="nama_barang" value="<?php echo $data['sig2']; ?>">
+                <input type="text" class="form-control" name="nama_kota2" value="<?php echo $data['sig2']; ?>">
             </div>
 			<div class="form-group">
                 <label>SIG 3</label>
-                <input type="text" class="form-control" name="nama_barang" value="<?php echo $data['sig3']; ?>">
+                <input type="text" class="form-control" name="nama_kota3" value="<?php echo $data['sig3']; ?>">
             </div>
 			<div class="form-group">
                 <label>SIG 4</label>
-                <input type="text" class="form-control" name="nama_barang" value="<?php echo $data['sig4']; ?>">
+                <input type="text" class="form-control" name="nama_kota4" value="<?php echo $data['sig4']; ?>">
             </div>
 			<div class="form-group">
                 <label>SIG 5</label>
-                <input type="text" class="form-control" name="nama_barang" value="<?php echo $data['sig5']; ?>">
+                <input type="text" class="form-control" name="nama_kota5" value="<?php echo $data['sig5']; ?>">
             </div>
             
               <button class="btn btn-primary" type="submit">Update</button>

@@ -97,9 +97,7 @@ $sec = "10000";
                         <li><a href="klimatologi">LAPORAN</a></li>
 						<li><a href="klimatologi">KONTAK</a></li>
 						<li><a href="klimatologi">SETTING</a></li>
-                        <?php if (isset($_SESSION['id'])): ?>
-                            <li><a href="logout.php" style="color:white;"><i class="glyphicon glyphicon-log-out"> LOGOUT</i></a>
-                            <?php endif; ?>
+                        
                     </ul>
                 </div> <!-- /.navbar-collapse -->
             </div>

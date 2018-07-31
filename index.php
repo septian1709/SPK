@@ -113,6 +113,9 @@ $rs=$result2['jumlah2'];
 				 <div id="dvMap" style="width: 100%; height: 270px; margin-top:10px; box-shadow: 1px 1px 3px grey; padding: 0px 0px 0px 0px""></div>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDcZJ8zBcGKVDzLH2fcwflexue9ZoiIoCY&callback=initMap" async defer></script>
 	<script type="text/javascript">
+    function zoom() {
+            document.body.style.zoom = "5%" 
+        }
 		var markers = [
 		<?php
 		$sql = mysqli_query($koneksi, "SELECT * FROM dataresume");
@@ -145,11 +148,13 @@ $rs=$result2['jumlah2'];
                 var data = markers[i];
 				var latnya = data.lat;
 				var longnya = data.long;
+        var labels = '123456789';
 				var myLatlng = new google.maps.LatLng(latnya, longnya);
                 var marker = new google.maps.Marker({
                     position: myLatlng,
                     map: map,
-                    title: data.alamat
+                    title: data.alamat,
+                    label: labels[i % labels.length]
                 });
                 (function (marker, data) {
                     google.maps.event.addListener(marker, "click", function (e) {

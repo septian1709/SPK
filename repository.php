@@ -27,6 +27,7 @@ include 'v_header.php';
                 <th>Info Gempa</th>
                 <th>Status</th>
                 <th>Aksi</th>
+                <th>DETAIL</th>
                 </tr>
         </thead>
 		
@@ -34,17 +35,31 @@ include 'v_header.php';
 			<?php
 			
 			$no = 1;
-			$res = mysqli_query($koneksi,"SELECT * FROM repository WHERE STATUS=1");
+			$res = mysqli_query($koneksi,"SELECT * FROM repository ORDER BY TIME2 DESC");
+            //perbandingan status
+            
 			while($row = $res->fetch_assoc()){
+                if($row['STATUS'] == 1)
+                {
+                    $teks ="DIRASAKAN";
+                }
+                else
+                {
+                    $teks ="TIDAK DIRASAKAN";
+                }
 				echo '
 				<tr>
 					<td>'.$no.'</td>
 					<td>'.$row['id'].'</td>
 					<td>'.$row['gempabumi'].'</td>
-					<td>Dirasakan</td>
-					<td> <button type="button" class="btn btn-default btn-sm" href="#myModal" data-toggle="modal" id="custId" data-id="'.$row['idpublic'].'">
-          <span class="glyphicon glyphicon-edit" ></span> Tambah Info
-        </button></td>
+					<td> '.$teks.' </td>
+					<td> <button type="button" class="btn btn-default btn-sm" href="#myModal" data-toggle="modal" id="custId" data-id="'.$row['nomor'].'">
+                        <span class="glyphicon glyphicon-edit" ></span> Tambah Info
+                        </button>
+                    </td>
+                    <td>
+                        <a href="tesnarasi.php?id='.$row['nomor'].'" style="color:black"><button type="button" class="btn btn-default btn-sm">DETAIL</button></a>
+                    </td>
 				</tr>
 				';
 				$no++;
@@ -58,6 +73,7 @@ include 'v_header.php';
                 <th>Info Gempa</th>
                 <th>Status</th>
                 <th>Aksi</th>
+                <th>DETAIL</th>
             </tr>
         </tfoot>
 	</table>
@@ -65,6 +81,9 @@ include 'v_header.php';
 	<script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
 	<script src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
 	<script>
+    function zoom() {
+        document.body.style.zoom = "100%"
+    }
 	$(document).ready(function() {
 		$('#dataTables').DataTable();
 	} );
@@ -118,4 +137,5 @@ include 'v_header.php';
     });
   </script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
   </body>
