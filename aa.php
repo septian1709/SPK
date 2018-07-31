@@ -17,7 +17,7 @@
 	include("koneksi.php"); // memanggil file koneksi.php untuk koneksi ke database
 ?>
 
-<div class="content-wrapper">
+	<div class="content-wrapper">
     <div class="container-fluid">
 	  <div class="container">
 	   <div class="form-group" >
@@ -59,7 +59,7 @@
 		<div class="col-2">
 		<label class="checkbox-inline"><input type="checkbox" name = "sig1" value="I SIG (II MMI)">	 I SIG</label>
 		</div>
-		<div class="col-2">
+		<div class="col-10">
 		<input type="text" name="kota1"  placeholder="kota" class="form-control" />
 		</div>
 		</div>
@@ -219,3 +219,4 @@ if (isset($_POST['Submit'])){
 	include ("narasimodal.php");
 	}
 ?>
+
